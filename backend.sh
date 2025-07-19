@@ -4,7 +4,7 @@ dnf module enable nodejs:18 -y
 dnf install nodejs -y
 cp backend.service /etc/systemd/system/backend.service
 useradd expense
-rm -rf /app
+
 mkdir /app
 curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip
 cd /app
@@ -17,4 +17,4 @@ systemctl enable backend
 systemctl start backend
 
 dnf install mysql -y
-mysql -h 172.31.21.190 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
