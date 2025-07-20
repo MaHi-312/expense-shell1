@@ -1,4 +1,5 @@
 source common.sh
+component=backend
 
 echo install nodejs repos
 dnf module disable nodejs -y >>$log_file
@@ -15,12 +16,9 @@ echo clean app content
 rm -rf /app >>$log_file
 
 mkdir /app
-
-echo download app content
-curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip >>$log_file
 cd /app
-echo extract app content
-unzip /tmp/backend.zip >>$log_file
+
+download_and_extract
 
 echo download dependencies
 npm install >>$log_file
