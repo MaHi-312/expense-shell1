@@ -1,4 +1,4 @@
-log_file=/tmp/expense.log
+source common.sh
 
 echo disable mysql 8 version
 dnf module disable mysql -y >>$log_file

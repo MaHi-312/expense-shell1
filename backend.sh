@@ -1,4 +1,4 @@
-log_file=/tmp/expense.log
+source common.sh
 
 echo install nodejs repos
 dnf module disable nodejs -y >>$log_file
