@@ -4,19 +4,35 @@ component=backend
 echo install nodejs repos
 dnf module disable nodejs -y &>>$log_file
 dnf module enable nodejs:18 -y &>>$log_file
-echo $?
+if [ $? -eq 0 ]; then
+   echo success
+  else
+    echo failed
+fi
 
 echo install nodejs
 dnf install nodejs -y &>>$log_file
-echo $?
+if [ $? -eq 0 ]; then
+   echo success
+  else
+    echo failed
+fi
 
 echo copy backend service file
 cp backend.service /etc/systemd/system/backend.service &>>$log_file
-echo $?
+if [ $? -eq 0 ]; then
+   echo success
+  else
+    echo failed
+fi
 
 echo useradd application user
 useradd expense &>>$log_file
-echo $?
+if [ $? -eq 0 ]; then
+   echo success
+  else
+    echo failed
+fi
 
 echo clean app content
 rm -rf /app &>>$log_file
