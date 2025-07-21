@@ -57,6 +57,6 @@ echo install mysql client
 dnf install mysql -y &>>$log_file
 echo $?
 
-echo download schema
+echo load schema
 mysql -h mysql.malleswaridevops.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$log_file
 echo $?
