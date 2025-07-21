@@ -5,33 +5,33 @@ echo install nodejs repos
 dnf module disable nodejs -y &>>$log_file
 dnf module enable nodejs:18 -y &>>$log_file
 if [ $? -eq 0 ]; then
-   echo success
+   echo -e "\e[32m green color\e[0m"
   else
-    echo failed
+    echo -e "\e[31m red color\e[0m"
 fi
 
 echo install nodejs
 dnf install nodejs -y &>>$log_file
 if [ $? -eq 0 ]; then
-   echo success
+   echo -e "\e[32m green color\e[0m"
   else
-    echo failed
+    echo -e "\e[31m red color\e[0m"
 fi
 
 echo copy backend service file
 cp backend.service /etc/systemd/system/backend.service &>>$log_file
 if [ $? -eq 0 ]; then
-   echo success
+   echo -e "\e[32m green color\e[0m"
   else
-    echo failed
+    echo -e "\e[31m red color\e[0m"
 fi
 
 echo useradd application user
 useradd expense &>>$log_file
 if [ $? -eq 0 ]; then
-   echo success
+   echo -e "\e[32m green color\e[0m"
   else
-    echo failed
+    echo -e "\e[31m red color\e[0m"
 fi
 
 echo clean app content
